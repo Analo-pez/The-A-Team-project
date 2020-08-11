@@ -1,0 +1,292 @@
+
+/*ADALABERS SECTION*/
+
+.adalabers {
+    display: flex;
+    flex-direction: column;
+    background-color: $color-light;
+    &__title{   
+      position: relative;
+      top: 25px;
+      font-weight: 500;
+      text-align: center;
+      color: $color-primary;
+      font-family: $font-secondary;
+      margin-bottom: 30px;
+      margin-top: 30px;
+      
+      @media all and (min-width: 768px){
+        margin-bottom: 45px;
+        margin-top: 45px;
+      }
+    }
+    &__boxcards{
+      display: flex;
+      flex-direction: column;
+      }
+  }
+
+  /* ------------------------------- */
+
+  .adalabercard{
+    display: flex;
+    flex-direction: column;
+
+    @media all and (min-width: 768px) {
+      flex-direction: row;
+      align-items: center;
+      margin-left: 40px;
+      margin-right: 40px;
+    }
+
+    &__boximg{
+      background-color: $color-background;
+      border: 5px solid $color-background;
+      width: 190px;
+      height: 190px;
+      position: relative;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 15px;
+      border-radius: 12px;
+
+      
+      @media all and (min-width: 768px) {
+        width: 215px;
+        height: 215px;
+        align-self: flex-start;
+        margin-top: 20px;
+      }
+      @media only screen and (min-width: 1200px){
+        width: 285px;
+        height: 285px;
+      }
+
+        &--photo{
+          width: 180px;
+          height: 180px;
+          border-radius: 12px;
+          position: relative;
+          top: 0;
+          transition: opacity ease 1s;
+          
+          &:hover{
+            opacity: 0;
+          }
+            @media all and (min-width: 768px) {
+              width: 205px;
+              height: 205px;
+            }
+            @media all and (min-width: 1200px){
+              width: 275px;
+              height: 275px;
+            }
+          }
+
+        &--teamA{
+          width: 180px;
+          height: 180px;
+          border-radius: 12px;
+          position: absolute;
+          opacity: 1;
+          left: 0;
+          top: 0;
+          transition: opacity ease 1s;
+
+          &:hover{
+            opacity: 0;
+          }
+          @media all and (min-width: 768px) {
+            width: 205px;
+            height: 205px;
+          }
+          @media all and (min-width: 1200px){
+            width: 275px;
+            height: 275px;
+          }
+        }
+
+    }
+    &__boxinfo{
+      display: flex;
+      flex-direction: column;
+      margin-top: 15px;
+        &--name{
+          font-family: $font-primary;
+          font-weight: normal;
+          font-size: 20px;
+          text-align: center;
+        }
+        &--info{
+          text-align: center;
+          line-height: 1.5;
+          padding-left: 20px;
+          padding-right: 20px;
+          color: $color-fontPrimary;
+          font-family: $font-primary;
+          margin: 15px;
+        }
+        &--icons{
+          display: flex;
+          justify-content: center;
+          margin-bottom: 30px;
+          margin-top: 15px;
+          color: $color-primary;
+            .fab,
+            .fas {
+              display: inline-block;
+              transition: color ease 0.5s;
+            }
+
+            .fab:hover, .fas:hover {
+              color: black;
+            }
+
+            .fab:after {
+              content: "·";
+              margin: 8px;
+              font-weight: bold;
+            }
+        }
+    }
+  }
+
+@media all and (min-width: 768px) {
+
+  .odd .adalabercard__boxinfo--name,
+  .odd .adalabercard__boxinfo--info {
+    text-align: left;
+    margin-left: 35px;
+    padding: 0px;
+  }
+
+  .pair .adalabercard__boxinfo--name,
+  .pair .adalabercard__boxinfo--info {
+    text-align: right;
+    margin-right: 35px;
+    padding: 0px;
+  }
+  .odd .adalabercard__boxinfo--icons {
+    justify-content: flex-start;
+    margin-left: 35px;
+  }
+
+  .pair .adalabercard__boxinfo--icons {
+    justify-content: flex-end;
+    margin-right: 35px;
+  }
+  .pair {
+    flex-direction: row-reverse;
+  }
+}
+
+
+@media only screen and (min-width: 1200px) {
+
+
+  .adalabers__boxCards{
+    flex-direction: row;
+    justify-content: center;
+    margin-left: 138px;
+    margin-right: 138px;
+  }
+
+  .pair {
+    flex-direction: row-reverse;
+  }
+}
+
+/* ANIMACION CON BOX-SHADOW */
+
+.adalabercard__boximg:hover{
+  animation: shadow-drop 0.6s both, float 4s linear infinite;
+  transform-origin: 50% 50%;
+}
+
+@keyframes shadow-drop{
+  0% {
+    transform: translateZ(0);
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+  }
+  25% {
+    transform: translateZ(25px);
+    box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.15);
+  }
+  50% {
+    transform: translateZ(50px);
+    box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.35);
+  }
+  75% {
+    transform: translateZ(75px);
+    box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.55);
+  }
+  100% {
+    transform: translateZ(100px);
+    box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.76);
+  }
+}
+
+@keyframes float {
+  0% { transform: translateY(0) }
+  25% { transform: translateY(-6px) }
+  50% { transform: translateY(0) }
+  100% { transform: translateY(0) }
+} 
+
+/*NOMBRES*/
+.odd {
+  & .adalabercard__boxinfo--name{
+    transform: perspective(1px) translateZ(0);
+    position: relative;
+    overflow: hidden;
+  }
+
+  & .adalabercard__boxinfo--name:before{
+    content: "";
+    position: absolute;
+    z-index: -1;
+    left: 0%;
+    right: 100%;
+    bottom: 0;
+    background: linear-gradient(to right, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.9) 57%, rgba(0,0,0,0.85) 89%, rgba(227,202,38,0.84) 95%, rgba(255,0,0,0.83) 100%);
+    height: 2px;
+    transition-property: left, right;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-out;
+  }
+
+  & .adalabercard__boxinfo--name:hover:before, .adalabercard__boxinfo--name:focus:before, .adalabercard__boxinfo--name:active:before {
+    left: 0;
+    right: 0;
+  }
+}
+
+.pair {
+  & .adalabercard__boxinfo--name{
+    transform: perspective(1px) translateZ(0);
+    position: relative;
+    overflow: hidden;
+  }
+
+  & .adalabercard__boxinfo--name:before{
+    content: "";
+    position: absolute;
+    z-index: -1;
+    left: 100%;
+    right: 0%;
+    bottom: 0;
+    background: linear-gradient(to right, rgba(255,0,0,0.83) 0%, rgba(227,202,38,0.84) 5%, rgba(0,0,0,0.85) 11%,  rgba(0,0,0,0.9)43%,  rgba(0,0,0,0.9)100%);
+    height: 2px;
+    transition-property: left, right;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-out;
+  }
+
+  & .adalabercard__boxinfo--name:hover:before, .adalabercard__boxinfo--name:focus:before, .adalabercard__boxinfo--name:active:before {
+    left: 0;
+    right: 0;
+  }
+}
+
+
+
